@@ -4,8 +4,20 @@ import tkinter as tk
 #AÑADIR FUNCIONES QUE LES FUERON ASIGNADAS ENTRE ESTOS COMENTARIOS
 
 
-9
+
 #####################
+def StringToROT13(texto):
+    resultado = ""
+    for c in texto:
+        if 'a' <= c <= 'z':
+            resultado += chr((ord(c) - ord('a') + 13) % 26 + ord('a'))
+        elif 'A' <= c <= 'Z':
+            resultado += chr((ord(c) - ord('A') + 13) % 26 + ord('A'))
+        else:
+            resultado += c
+    return resultado
+def ROT13ToString(texto):
+    return StringToROT13(texto)
 
 def mostrarBits(cadenaBits, contenedor, fila, columna):
     anchoCuadro = 30
