@@ -35,10 +35,19 @@ def mostrarBits(cadenaBits, contenedor, fila, columna):
     #esto crea un rectangulo con "i" cantidad de cuadros, donde cada cuadro esta formado por las puntos (coordenadaFinal, 0) y (coordeanadaFinal, altoCuadro)
 
 def crearVentanaVisualizacion():
+    mensajeOriginal = inputMensaje.get()
+    mensajeCifrado = StringToROT13(mensajeOriginal)
+
     segundaVentana = tk.Toplevel(menu)
     segundaVentana.title("Proceso de encriptación paso a paso")
     
-    botonContinuar = tk.Button(segundaVentana, text="Ver mensaje resultante", command=lambda:[segundaVentana.destroy(), crearVentanaResultado("pepe")])
+    tk.Label(segundaVentana, text="Mensaje original:").grid(row=0, column=0, padx=10, pady=5)
+    tk.Label(segundaVentana, text=mensajeOriginal).grid(row=0, column=1, padx=10, pady=5)
+
+    tk.Label(segundaVentana, text="Mensaje cifrado con ROT13:").grid(row=1, column=0, padx=10, pady=5)
+    tk.Label(segundaVentana, text=mensajeCifrado).grid(row=1, column=1, padx=10, pady=5)
+ 
+    botonContinuar = tk.Button(segundaVentana, text="Ver mensaje resultante", command=lambda:[segundaVentana.destroy(), crearVentanaResultado(ROT13ToString(mensajeCifrado))])
     botonContinuar.grid(row=1, columnspan=2, pady=10, padx=10)
 
 def crearVentanaResultado(mensajeDesencriptado):
