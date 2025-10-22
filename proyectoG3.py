@@ -4,7 +4,7 @@ import tkinter as tk
 #AÑADIR FUNCIONES QUE LES FUERON ASIGNADAS ENTRE ESTOS COMENTARIOS
 
 
-
+9
 #####################
 
 def mostrarBits(cadenaBits, contenedor, fila, columna):
