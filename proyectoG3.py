@@ -1,27 +1,27 @@
-def ROT13toBit(input_text):
+def ROT13toBit(texto_de_entrada):
     rot13_texto = ''
-    for char in input_text:
+    for char in texto_de_entrada:
         if 'A' <= char <= 'Z':
             rot13_texto += chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
         elif 'a' <= char <= 'z':
             rot13_texto += chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
         else:
             rot13_texto += char
-    bit_output = ' '.join(format(ord(c), '08b') for c in rot13_texto)
-    return bit_output
+    bit_de_salida = ' '.join(format(ord(c), '08b') for c in rot13_texto)
+    return bit_de_salida
 
-def BitToROT13(bit_input):
-    chars = bit_input.split()
+def BitToROT13(bit_de_entrada):
+    chars = bit_de_entrada.split()
     text = ''.join(chr(int(b, 2)) for b in chars)
-    original_text = ''
+    texto_original = ''
     for char in text:
         if 'A' <= char <= 'Z':
-            original_text += chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
+            texto_original += chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
         elif 'a' <= char <= 'z':
-            original_text += chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
+            texto_original += chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
         else:
-            original_text += char
-    return original_text
+            texto_original += char
+    return texto_original
 
 #Entrada desde terminal
 mensaje = input("Escribe el mensaje que quieres cifrar y luego recuperar: ")
