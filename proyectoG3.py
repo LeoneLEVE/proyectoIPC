@@ -7,7 +7,7 @@ def ROT13toBit(input_texto):
         elif 'a' <= char <= 'z':
             rot13_texto += chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
         else:
-            rot13_texto += char  # No modifica espacios ni signos
+            rot13_texto += char
 
     # Convertir a cadenas de bits
     bit_output = ' '.join(format(ord(c), '08b') for c in rot13_texto)
