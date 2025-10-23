@@ -91,7 +91,4 @@ inputMensaje.grid(row=1,column=1, padx=10)
 boton = tk.Button(menu, text="Encriptar mensaje",command=crearVentanaVisualizacion)
 boton.grid(row=2, pady=10, columnspan=2)
 
-
-menu.mainloop()
-
 menu.mainloop()
