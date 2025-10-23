@@ -50,23 +50,15 @@ def crearVentanaVisualizacion():
     segundaVentana = tk.Toplevel(menu)
     segundaVentana.title("Proceso de encriptación paso a paso")
 
-    strMensaje = inputMensaje.get()
     tk.Label(segundaVentana, text="Mensaje encriptado con ROT13: ").grid(row=0, column=0, pady=10, padx=10)
-    tk.Label(segundaVentana, text=StringToROT13(strMensaje)).grid(row=0, column=1, padx=10, pady=10)
+    tk.Label(segundaVentana, text=mensajeCifrado).grid(row=0, column=1, padx=10, pady=10)
 
-    strMensaje = StringToROT13(strMensaje)
     tk.Label(segundaVentana, text="Mensaje encriptado a binario: ").grid(row=1, column=0, padx=10, pady=10)
-    strMensaje = ROT13toBit(strMensaje)
-    mostrarBits(strMensaje, segundaVentana, 2, 2)
-    
-    tk.Label(segundaVentana, text="Mensaje original:").grid(row=0, column=0, padx=10, pady=5)
-    tk.Label(segundaVentana, text=mensajeOriginal).grid(row=0, column=1, padx=10, pady=5)
-
-    tk.Label(segundaVentana, text="Mensaje cifrado con ROT13:").grid(row=1, column=0, padx=10, pady=5)
-    tk.Label(segundaVentana, text=mensajeCifrado).grid(row=1, column=1, padx=10, pady=5)
+    mensajeBinario = ROT13toBit(mensajeCifrado)
+    mostrarBits(mensajeBinario, segundaVentana, 1, 2)
  
-    botonContinuar = tk.Button(segundaVentana, text="Ver mensaje resultante", command=lambda:[segundaVentana.destroy(), crearVentanaResultado(ROT13ToString(mensajeCifrado))])
-    botonContinuar.grid(row=1, columnspan=2, pady=10, padx=10)
+    botonContinuar = tk.Button(segundaVentana, text="Ver mensaje resultante", command=lambda:[segundaVentana.destroy(), crearVentanaResultado("Aún no modificar esta parte, falta correcion Hamming")])
+    botonContinuar.grid(columnspan=2, pady=10, padx=10)
 
 def crearVentanaResultado(mensajeDesencriptado):
     terceraVentana = tk.Toplevel(menu)
